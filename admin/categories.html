@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories Management - ReWear Admin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        .sidebar {
+            min-height: 100vh;
+            background-color: #343a40;
+        }
+        .sidebar .nav-link {
+            color: rgba(255, 255, 255, 0.75);
+            border-left: 3px solid transparent;
+        }
+        .sidebar .nav-link:hover {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .sidebar .nav-link.active {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-left: 3px solid #0d6efd;
+        }
+        .sidebar .nav-link i {
+            width: 20px;
+            text-align: center;
+            margin-right: 8px;
+        }
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            font-size: 1.25rem;
+        }
+        .category-card {
+            transition: all 0.3s ease;
+            border-radius: 10px;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 d-md-block sidebar bg-dark text-white collapse" id="sidebarMenu">
+                <div class="position-sticky pt-3">
+                    <div class="text-center mb-4">
+                        <img src="../../assets/images/logo-white.png" alt="ReWear" height="40">
+                        <h5 class="mt-2">Admin Panel</h5>
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard.html">
+                                <i class="fas fa-tachometer-alt"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="items.html">
+                                <i class="fas fa-tshirt"></i>
+                                Items
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="users.html">
+                                <i class="fas fa-users"></i>
+                                Users
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="swaps.html">
+                                <i class="fas fa-exchange-alt"></i>
+                                Swaps
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="categories.html">
+                                <i class="fas fa-tags"></i>
+                                Categories
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-cog"></i>
+                                Settings
+                            </a>
+                        </li>
+                        <li class="nav-item mt-3">
+                            <a class="nav-link text-danger" href="#">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <!-- Top Navigation -->
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <button class="btn btn-outline-secondary d-md-none me-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="h2">Categories Management</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
+                            <i class="fas fa-plus me-1"></i> Add Category
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Categories Overview -->
+                <div class="row mb-4">
+                    <div class="col-md-3 mb-3">
+                        <div class="card text-white bg-primary h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="card-title">Total Categories</h6>
+                                        <h2 class="mb-0">12</h2>
+                                    </div>
+                                    <i class="fas fa-tags fa-3x opacity-50"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card text-white bg-success h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="card-title">Active Categories</h6>
+                                        <h2 class="mb-0">10</h2>
+                                    </div>
+                                    <i class="fas fa-check-circle fa-3x opacity-50"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card text-white bg-warning h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="card-title">Items Listed</h6>
+                                        <h2 class="mb-0">856</h2>
+                                    </div>
+                                    <i class="fas fa-tshirt fa-3x opacity-50"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card text-white bg-info h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="card-title">Popular Category</h6>
+                                        <h4 class="mb-0">Tops</h4>
+                                    </div>
+                                    <i class="fas fa-star fa-3x opacity-50"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categories List -->
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h6 class="mb-0">All Categories</h6>
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="tableActions" data-bs-toggle="dropdown">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#">Export to CSV</a></li>
+                                <li><a class="dropdown-item" href="#">Export to Excel</a></li>
+                                <li><a class="dropdown-item" href="#">Print</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Refresh</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Category 1 -->
+                            <div class="col-md-4 mb-4">
+                                <div class="card category-card h-100 border-0 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div class="d-flex align-items-center">
+                                                <div class="category-icon bg-primary bg-opacity-10 text-primary me-3">
+                                                    <i class="fas fa-tshirt"></i>
+                                                </div>
+                                                <h5 class="mb-0">Tops</h5>
+                                            </div>
+                                            <span class="badge bg-success">Active</span>
+                                        </div>
+                                        <p class="text-muted small">Shirts, blouses, t-shirts, sweaters, and other upper body clothing.</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="text-muted small"><i class="fas fa-tshirt me-1"></i> 245 items</span>
+                                            <div class="dropdown">
+                                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="categoryActions1" data-bs-toggle="dropdown">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-end">
+                                                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editCategoryModal"><i class="fas fa-edit me-2"></i> Edit</a></li>
+                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i> View Items</a></li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i> Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Category 2 -->
+                            <div class="col-md-4 mb-4">
+                                <div class="card category-card h-100 border-0 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div class="d-flex align-items-center">
+                                                <div class="category-icon bg-success bg-opacity-10 text-success me-3">
+                                                    <i class="fas fa-vest"></i>
+                                                </div>
+                                                <h5 class="mb-0">Bottoms</h5>
+                                            </div>
+                                            <span class="badge bg-success">Active</span>
+                                        </div>
+                                        <p class="text-muted small">Pants, jeans, skirts, shorts, and other lower body clothing.</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="text-muted small"><i class="fas fa-tshirt me-1"></i> 180 items</span>
+                                            <div class="dropdown">
+                                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="categoryActions2" data-bs-toggle="dropdown">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-end">
+                                                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editCategoryModal"><i class="fas fa-edit me-2"></i> Edit</a></li>
+                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i> View Items</a></li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i> Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Category 3 -->
+                            <div class="col-md-4 mb-4">
+                                <div class="card category-card h-100 border-0 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div class="d-flex align-items-center">
+                                                <div class="category-icon bg-danger bg-opacity-10 text-danger me-3">
+                                                    <i class="fas fa-female"></i>
+                                                </div>
+                                                <h5 class="mb-0">Dresses</h5>
+                                            </div>
+                                            <span class="badge bg-success">Active</span>
+                                        </div>
+                                        <p class="text-muted small">All types of dresses including casual, formal, and party dresses.</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="text-muted small"><i class="fas fa-tshirt me-1"></i> 120 items</span>
+                                            <div class="dropdown">
+                                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="categoryActions3" data-bs-toggle="dropdown">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-end">
+                                                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editCategoryModal"><i class="fas fa-edit me-2"></i> Edit</a></li>
+                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i> View Items</a></li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i> Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Category 4 -->
+                            <div class="col-md-4 mb-4">
+                                <div class="card category-card h-100 border-0 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div class="d-flex align-items-center">
+                                                <div class="category-icon bg-warning bg-opacity-10 text-warning me-3">
+                                                    <i class="fas fa-jacket"></i>
+                                                </div>
+                                                <h5 class="mb-0">Outerwear</h5>
+                                            </div>
+                                            <span class="badge bg-success">Active</span>
+                                        </div>
+                                        <p class="text-muted small">Jackets, coats, blazers, and other outer layer clothing.</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="text-muted small"><i class="fas fa-tshirt me-1"></i> 95 items</span>
+                                            <div class="dropdown">
+                                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="categoryActions4" data-bs-toggle="dropdown">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-end">
+                                                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editCategoryModal"><i class="fas fa-edit me-2"></i> Edit</a></li>
+                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i> View Items</a></li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i> Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Category 5 -->
+                            <div class="col-md-4 mb-4">
+                                <div class="card category-card h-100 border-0 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div class="d-flex align-items-center">
+                                                <div class="category-icon bg-info bg-opacity-10 text-info me-3">
+                                                    <i class="fas fa-shoe-prints"></i>
+                                                </div>
+                                                <h5 class="mb-0">Shoes</h5>
+                                            </div>
+                                            <span class="badge bg-success">Active</span>
+                                        </div>
+                                        <p class="text-muted small">All types of footwear including sneakers, boots, and sandals.</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="text-muted small"><i class="fas fa-tshirt me-1"></i> 110 items</span>
+                                            <div class="dropdown">
+                                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="categoryActions5" data-bs-toggle="dropdown">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-end">
+                                                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editCategoryModal"><i class="fas fa-edit me-2"></i> Edit</a></li>
+                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i> View Items</a></li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i> Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Category 6 -->
+                            <div class="col-md-4 mb-4">
+                                <div class="card category-card h-100 border-0 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div class="d-flex align-items-center">
+                                                <div class="category-icon bg-secondary bg-opacity-10 text-secondary me-3">
+                                                    <i class="fas fa-bag-shopping"></i>
+                                                </div>
+                                                <h5 class="mb-0">Accessories</h5>
+                                            </div>
+                                            <span class="badge bg-success">Active</span>
+                                        </div>
+                                        <p class="text-muted small">Bags, hats, belts, jewelry, and other fashion accessories.</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="text-muted small"><i class="fas fa-tshirt me-1"></i> 106 items</span>
+                                            <div class="dropdown">
+                                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="categoryActions6" data-bs-toggle="dropdown">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-end">
+                                                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editCategoryModal"><i class="fas fa-edit me-2"></i> Edit</a></li>
+                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i> View Items</a></li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i> Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <nav aria-label="Page navigation" class="mt-4">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Add Category Modal -->
+    <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCategoryModalLabel">Add New Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="categoryName" class="form-label">Category Name</label>
+                            <input type="text" class="form-control" id="categoryName" placeholder="e.g. Activewear" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="categoryIcon" class="form-label">Icon</label>
+                            <select class="form-select" id="categoryIcon" required>
+                                <option value="" selected disabled>Select an icon</option>
+                                <option value="fa-tshirt">T-Shirt</option>
+                                <option value="fa-vest">Vest</option>
+                                <option value="fa-female">Dress</option>
+                                <option value="fa-jacket">Jacket</option>
+                                <option value="fa-shoe-prints">Shoes</option>
+                                <option value="fa-bag-shopping">Bag</option>
+                                <option value="fa-hat-cowboy">Hat</option>
+                                <option value="fa-glasses">Glasses</option>
+                                <option value="fa-ring">Jewelry</option>
+                                <option value="fa-watch">Watch</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="categoryColor" class="form-label">Color Theme</label>
+                            <select class="form-select" id="categoryColor" required>
+                                <option value="" selected disabled>Select a color</option>
+                                <option value="primary">Blue</option>
+                                <option value="secondary">Gray</option>
+                                <option value="success">Green</option>
+                                <option value="danger">Red</option>
+                                <option value="warning">Yellow</option>
+                                <option value="info">Teal</option>
+                                <option value="dark">Dark</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="categoryDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="categoryDescription" rows="3" placeholder="Brief description of this category..."></textarea>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="categoryActive" checked>
+                            <label class="form-check-label" for="categoryActive">Active (visible to users)</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Add Category</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Category Modal -->
+    <div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editCategoryModalLabel">Edit Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="editCategoryName" class="form-label">Category Name</label>
+                            <input type="text" class="form-control" id="editCategoryName" value="Tops" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editCategoryIcon" class="form-label">Icon</label>
+                            <select class="form-select" id="editCategoryIcon" required>
+                                <option value="fa-tshirt" selected>T-Shirt</option>
+                                <option value="fa-vest">Vest</option>
+                                <option value="fa-female">Dress</option>
+                                <option value="fa-jacket">Jacket</option>
+                                <option value="fa-shoe-prints">Shoes</option>
+                                <option value="fa-bag-shopping">Bag</option>
+                                <option value="fa-hat-cowboy">Hat</option>
+                                <option value="fa-glasses">Glasses</option>
+                                <option value="fa-ring">Jewelry</option>
+                                <option value="fa-watch">Watch</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editCategoryColor" class="form-label">Color Theme</label>
+                            <select class="form-select" id="editCategoryColor" required>
+                                <option value="primary" selected>Blue</option>
+                                <option value="secondary">Gray</option>
+                                <option value="success">Green</option>
+                                <option value="danger">Red</option>
+                                <option value="warning">Yellow</option>
+                                <option value="info">Teal</option>
+                                <option value="dark">Dark</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editCategoryDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="editCategoryDescription" rows="3">Shirts, blouses, t-shirts, sweaters, and other upper body clothing.</textarea>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="editCategoryActive" checked>
+                            <label class="form-check-label" for="editCategoryActive">Active (visible to users)</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swap Requests - ReWear</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation (same as dashboard) -->
+    <!-- ... -->
+
+    <!-- Swap Requests Content -->
+    <div class="container-fluid py-4">
+        <div class="row">
+            <!-- Sidebar (same as dashboard) -->
+            <!-- ... -->
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="mb-0">Swap Requests</h2>
+                    <div class="d-flex gap-2">
+                        <select class="form-select form-select-sm w-auto">
+                            <option selected>All Status</option>
+                            <option>Pending</option>
+                            <option>Accepted</option>
+                            <option>Rejected</option>
+                            <option>Completed</option>
+                        </select>
+                        <button class="btn btn-sm btn-outline-secondary">
+                            <i class="fas fa-filter"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">Active Requests</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group">
+                            <!-- Swap Request 1 -->
+                            <div class="list-group-item">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="d-flex">
+                                        <img src="../../../assets/images/users/user2.jpg" class="rounded-circle me-3" width="60" height="60" alt="User">
+                                        <div>
+                                            <h6 class="mb-1">Sarah Johnson wants your Denim Jacket</h6>
+                                            <p class="small text-muted mb-1">Offering: Winter Coat + 100 points</p>
+                                            <p class="small text-muted mb-0">Requested: Today, 10:24 AM</p>
+                                        </div>
+                                    </div>
+                                    <span class="badge bg-warning">Pending</span>
+                                </div>
+                                <div class="mt-3 d-flex justify-content-end gap-2">
+                                    <button class="btn btn-sm btn-success">Accept</button>
+                                    <button class="btn btn-sm btn-danger">Reject</button>
+                                    <button class="btn btn-sm btn-outline-primary">Message</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Swap Request 2 -->
+                            <div class="list-group-item">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="d-flex">
+                                        <img src="../../../assets/images/users/user3.jpg" class="rounded-circle me-3" width="60" height="60" alt="User">
+                                        <div>
+                                            <h6 class="mb-1">Michael Brown wants your Floral Summer Dress</h6>
+                                            <p class="small text-muted mb-1">Offering: Leather Handbag</p>
+                                            <p class="small text-muted mb-0">Requested: Yesterday, 3:45 PM</p>
+                                        </div>
+                                    </div>
+                                    <span class="badge bg-info">Negotiating</span>
+                                </div>
+                                <div class="mt-3 d-flex justify-content-end gap-2">
+                                    <button class="btn btn-sm btn-success">Accept</button>
+                                    <button class="btn btn-sm btn-danger">Reject</button>
+                                    <button class="btn btn-sm btn-outline-primary">Message</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">Your Requests</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group">
+                            <!-- Your Request 1 -->
+                            <div class="list-group-item">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="d-flex">
+                                        <img src="../../../assets/images/users/user4.jpg" class="rounded-circle me-3" width="60" height="60" alt="User">
+                                        <div>
+                                            <h6 class="mb-1">You requested Emily's Winter Coat</h6>
+                                            <p class="small text-muted mb-1">Offering: Denim Jacket + 50 points</p>
+                                            <p class="small text-muted mb-0">Requested: Jul 5, 2023</p>
+                                        </div>
+                                    </div>
+                                    <span class="badge bg-success">Accepted</span>
+                                </div>
+                                <div class="mt-3 d-flex justify-content-end gap-2">
+                                    <button class="btn btn-sm btn-outline-primary">View Details</button>
+                                    <button class="btn btn-sm btn-outline-secondary">Message</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (same as dashboard) -->
+    <!-- ... -->
+</body>
+</html>
