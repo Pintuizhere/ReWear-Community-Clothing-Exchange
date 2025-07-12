@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - ReWear</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.png" alt="ReWear" height="40"> ReWear
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="browse.html">Browse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <img src="assets/images/person.jpg" class="rounded-circle me-1" width="30" height="30" alt="User">
+                            John D.
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="#">My Profile</a></li>
+                            <li><a class="dropdown-item" href="#">My Items</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Profile Section -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center py-5">
+                        <img src="assets/images/person.jpg" class="rounded-circle mb-3" width="120" height="120" alt="User">
+                        <h4 class="mb-0">John Doe</h4>
+                        <p class="text-muted mb-2">john.doe@example.com</p>
+                        <p class="text-muted small">Member since June 2023</p>
+                        <hr>
+                        <div class="row text-center mb-4">
+                            <div class="col-4">
+                                <div class="fw-bold">24</div>
+                                <small class="text-muted">Items</small>
+                            </div>
+                            <div class="col-4">
+                                <div class="fw-bold">18</div>
+                                <small class="text-muted">Swaps</small>
+                            </div>
+                            <div class="col-4">
+                                <div class="fw-bold">1.2k</div>
+                                <small class="text-muted">Points</small>
+                            </div>
+                        </div>
+
+                        <a href="edit-profile.html" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-edit me-1"></i> Edit Profile
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Additional Profile Info -->
+                <div class="card border-0 shadow-sm mt-4">
+                    <div class="card-body">
+                        <h5>About Me</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris imperdiet, lorem sed sodales gravida, urna tortor laoreet libero, sit amet facilisis massa nunc id justo.</p>
+
+                        <h6 class="mt-4">Address</h6>
+                        <p>123 Green Street, Eco City, Earth 10101</p>
+
+                        <h6 class="mt-4">Phone</h6>
+                        <p>+1 234 567 890</p>
+
+                        <h6 class="mt-4">Preferences</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle text-success me-2"></i> Favorite Categories: Jackets, Jeans</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> Preferred Swap Location: Within 10 km</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> Notifications: Enabled</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small mb-0">&copy; 2023 ReWear. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small mb-0">
+                        <a href="#" class="text-white text-decoration-none">Terms</a> | 
+                        <a href="#" class="text-white text-decoration-none">Privacy</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

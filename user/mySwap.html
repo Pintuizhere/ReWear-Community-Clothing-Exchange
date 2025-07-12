@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ReWear</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+   <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.png" alt="ReWear" height="40"> ReWear
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="browse.html">Browse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <img src="assets/images/person.jpg" class="rounded-circle me-1" width="30" height="30" alt="User">
+                            John D.
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="#">My Profile</a></li>
+                            <li><a class="dropdown-item" href="#">My Items</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Dashboard Content -->
+    <div class="container-fluid py-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center py-4">
+                        <img src="assets/images/users/user1.jpg" class="rounded-circle mb-3" width="100" height="100" alt="User">
+                        <h5 class="mb-1">John Doe</h5>
+                        <p class="text-muted small">Member since June 2023</p>
+                        <div class="d-flex justify-content-center gap-3 mb-3">
+                            <div>
+                                <div class="fw-bold">24</div>
+                                <div class="text-muted small">Items</div>
+                            </div>
+                            <div>
+                                <div class="fw-bold">18</div>
+                                <div class="text-muted small">Swaps</div>
+                            </div>
+                            <div>
+                                <div class="fw-bold">1.2k</div>
+                                <div class="text-muted small">Points</div>
+                            </div>
+                        </div>
+                        <a href="add-item.html" class="btn btn-primary btn-sm w-100 mb-2">
+                            <i class="fas fa-plus me-1"></i> Add Item
+                        </a>
+                    </div>
+                      <div class="list-group list-group-flush">
+                        <a href="dashboard.html" class="list-group-item list-group-item-action active">
+                            <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                        </a>
+                        <a href="myProfile.html" class="list-group-item list-group-item-action">
+                            <i class="fas fa-user me-2"></i> My Profile
+                        </a>
+                        <a href="item.html" class="list-group-item list-group-item-action">
+                            <i class="fas fa-tshirt me-2"></i> My Items
+                        </a>
+                        <a href="mySwap.html" class="list-group-item list-group-item-action">
+                            <i class="fas fa-exchange-alt me-2"></i> My Swaps
+                        </a>
+                        <a href="wishlist.html" class="list-group-item list-group-item-action">
+                            <i class="fas fa-heart me-2"></i> Wishlist
+                        </a>
+                       
+                        <a href="../index.html" class="list-group-item list-group-item-action text-danger">
+                            <i class="fas fa-sign-out-alt me-2"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Main Content: My Swaps -->
+<div class="col-lg-9">
+    <h3 class="mb-4">My Swaps</h3>
+    <div class="row">
+
+        <!-- Swap Item 1 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="assets/images/img1.jpg" class="card-img-top" alt="Denim Jacket">
+                <div class="card-body">
+                    <h5 class="card-title">Denim Jacket</h5>
+                    <p class="card-text text-muted">Swapped with: <strong>Emily R.</strong></p>
+                    <span class="badge bg-warning text-dark">Pending Confirmation</span>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-eye me-1"></i>Details</a>
+                    <a href="#" class="btn btn-sm btn-outline-success confirm-btn"><i class="fas fa-check me-1"></i>Confirm</a>
+                    <a href="#" class="btn btn-sm btn-outline-danger cancel-btn"><i class="fas fa-times me-1"></i>Cancel</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Swap Item 2 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="assets/images/img2.jpg" class="card-img-top" alt="Girl Top Jeans">
+                <div class="card-body">
+                    <h5 class="card-title">Girl Top & Jeans</h5>
+                    <p class="card-text text-muted">Swapped with: <strong>Riya M.</strong></p>
+                    <span class="badge bg-success">Completed</span>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-eye me-1"></i>Details</a>
+                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="fas fa-comment me-1"></i>Review</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Swap Item 3 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="assets/images/img5.jpg" class="card-img-top" alt="Jeans">
+                <div class="card-body">
+                    <h5 class="card-title">Blue Jeans</h5>
+                    <p class="card-text text-muted">Swapped with: <strong>Aman K.</strong></p>
+                    <span class="badge bg-danger">Cancelled</span>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-eye me-1"></i>Details</a>
+                    <a href="#" class="btn btn-sm btn-outline-secondary reswap-btn"><i class="fas fa-redo me-1"></i>Reswap</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+             <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small mb-0">&copy; 2023 ReWear. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small mb-0">
+                        <a href="#" class="text-white text-decoration-none">Terms</a> | 
+                        <a href="#" class="text-white text-decoration-none">Privacy</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+
+<script>
+    // Confirm Swap
+    document.querySelectorAll('.confirm-btn').forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            // Update badge
+            const card = button.closest('.card');
+            const badge = card.querySelector('.badge');
+            badge.className = 'badge bg-success'; // Change color
+            badge.textContent = 'Completed';
+
+            // Disable buttons
+            button.classList.add('disabled');
+            const cancelBtn = card.querySelector('.cancel-btn');
+            if (cancelBtn) cancelBtn.classList.add('disabled');
+
+            alert('Swap confirmed successfully!');
+        });
+    });
+
+    // Cancel Swap
+    document.querySelectorAll('.cancel-btn').forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (confirm('Are you sure you want to cancel this swap?')) {
+                const card = button.closest('.card');
+                const badge = card.querySelector('.badge');
+                badge.className = 'badge bg-danger';
+                badge.textContent = 'Cancelled';
+
+                // Disable confirm and cancel
+                const confirmBtn = card.querySelector('.confirm-btn');
+                if (confirmBtn) confirmBtn.classList.add('disabled');
+                button.classList.add('disabled');
+
+                alert('Swap has been cancelled.');
+            }
+        });
+    });
+
+    // Reswap
+    document.querySelectorAll('.reswap-btn').forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            const card = button.closest('.card');
+            const badge = card.querySelector('.badge');
+            badge.className = 'badge bg-warning text-dark';
+            badge.textContent = 'Pending Confirmation';
+
+            alert('Reswap request sent!');
+        });
+    });
+</script>
+
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
